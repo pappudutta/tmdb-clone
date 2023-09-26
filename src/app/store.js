@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import movieSlice from "../features/movieSlice";
+import homeSlice from "../features/homeSlice";
 
 export default configureStore({
   reducer: {
-    movie: movieSlice,
+    home: homeSlice,
   },
 });

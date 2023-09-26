@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
+import getDataFromApi from "../services/api-client";
 
-const useMovies = url => {
+const useFetch = url => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading("loading...");
-    apiClient
-      .get(url)
+    setLoading(true);
+    getDataFromApi(url)
       .then(res => {
-        setData(res.data.results);
+        setData(res.data);
+        setLoading(false);
       })
       .catch(err => {
         setError(err);
+        setLoading(false);
       });
   }, [url]);
 
   return { data, loading, error };
 };
 
-export default useMovies;
+export default useFetch;

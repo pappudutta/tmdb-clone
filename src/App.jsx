@@ -1,16 +1,14 @@
-import React from "react";
-
-import useMovies from "./hooks/useMovies";
-import { BrowserRouter, Route, Router } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/homePage/Home";
+import apiClient from "./services/api-client";
 
 const App = () => {
-  const { data } = useMovies("/movie/popular");
-  console.log(data);
   return (
     <BrowserRouter>
-      <Router>
+      <Routes>
         <Route path="/" element={<Home />} />
-      </Router>
+      </Routes>
     </BrowserRouter>
   );
 };
