@@ -3,6 +3,8 @@ import useFetch from "../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import Img from "../lazyLoading/Img";
 import "./style.scss";
+import ContentWrapper from "../contentWrapper/ContentWrapper";
+import SearchInput from "../searchInput/SearchInput";
 
 const Banner = () => {
   const [background, setBackground] = useState(null);
@@ -18,22 +20,26 @@ const Banner = () => {
 
   return (
     <>
-      <div className="heroBanner">
+      <div className="banner">
         {background && backdrop_sizes && (
           <div className="backdropImage">
             <Img
+              className="lazy-load-img-background"
               src={secure_base_url + backdrop_sizes[1] + background}
               alt=""
             />
           </div>
         )}
         <div className="opacityLayer"></div>
-        <div className="heroBannerContent">
-          <h1 className="title">Welcome</h1>
-          <p className="subtitle">
-            Millions of movies, TV shows and people to discover. Explore now.
-          </p>
-        </div>
+        <ContentWrapper>
+          <div className="bannerContent">
+            <h1 className="title">Welcome</h1>
+            <p className="subtitle">
+              Millions of movies, TV shows and people to discover. Explore now.
+            </p>
+          </div>
+          <SearchInput />
+        </ContentWrapper>
       </div>
     </>
   );

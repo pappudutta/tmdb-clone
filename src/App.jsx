@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/homePage/Home";
-import apiClient from "./services/api-client";
+import Home from "./pages/home/Home";
 
 const App = () => {
   return (

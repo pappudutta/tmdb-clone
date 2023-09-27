@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import HeroBanner from "./homeBanner/HeroBanner";
+import HeroBanner from "./heroBanner/HeroBanner";
 import getDataFromApi from "../../services/api-client";
 import { useDispatch } from "react-redux";
 import { getApiConfiguration } from "../../features/homeSlice";
@@ -21,16 +21,6 @@ const Home = () => {
 
   return (
     <div>
-      <h1>hero</h1>
-      <div className="skeletonItem ">
-        <div className="posterBlock skeleton">
-          1
-          <div className="textBlock">
-            1<div className="title skeleton">Skeleton</div>
-            <div className="date skeleton">1</div>
-          </div>
-        </div>
-      </div>
       <HeroBanner />
     </div>
   );
