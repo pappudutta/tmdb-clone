@@ -21,7 +21,7 @@ const SwitchTabs = ({ tabs, onTabChange }) => {
             {tab}
           </span>
         ))}
-        <span></span>
+        <span className="movingBg" style={{ left: selectedTab * 100 }} />
       </div>
     </div>
   );
