@@ -7,6 +7,7 @@ import { getApiConfiguration } from "../../features/homeSlice";
 import "./style.scss";
 import Trending from "./trending/Trending";
 import Popular from "./popular/Popular";
+import TopRated from "./topRated/TopRated";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const Home = () => {
       <HeroBanner />
       <Trending />
       <Popular />
+      <TopRated />
     </div>
   );
 };

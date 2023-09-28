@@ -14,7 +14,7 @@ import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import Genres from "../genres/Genres";
 
-const Carousel = ({ data, loading }) => {
+const Carousel = ({ data, loading, endpoint }) => {
   const { url } = useSelector(state => state.home);
 
   const carouselContainer = useRef();
@@ -32,7 +32,7 @@ const Carousel = ({ data, loading }) => {
       behavior: "smooth",
     });
   };
-
+  console.log(endpoint);
   const { secure_base_url, poster_sizes } = url;
 
   const navigate = useNavigate();
@@ -73,7 +73,7 @@ const Carousel = ({ data, loading }) => {
                 key={item.id}
                 className="carouselItem"
                 onClick={() => {
-                  navigate(`/${item.media_type}/${item.id}`);
+                  navigate(`/${item.media_type || endpoint}/${item.id}`);
                 }}
               >
                 <div className="posterBlock">
