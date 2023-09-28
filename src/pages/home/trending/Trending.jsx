@@ -20,12 +20,7 @@ const Trending = () => {
           <span className="trendingTitle">Trending</span>
           <SwitchTabs tabs={tabs} onTabChange={onTabChange} />
         </ContentWrapper>
-        <Carousel
-          data={data?.results}
-          loading={loading}
-          endpoint={endpoint}
-          setEndpoint={setEndpoint}
-        />
+        <Carousel data={data?.results} loading={loading} />
       </div>
     </>
   );

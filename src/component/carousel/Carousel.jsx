@@ -18,14 +18,27 @@ const Carousel = ({ data, loading }) => {
     ImgUrl = secure_base_url + poster_sizes[2]; //change image quality update this [0++] < 3
   }
 
+  const skItem = () => {
+    return (
+      <div className="skeletonItem">
+        <div className="posterBlock skeleton">
+          <div className="textBlock">
+            <div className="title skeleton"></div>
+            <div className="date skeleton"></div>
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
-    <>
-      {!loading ? (
-        <div className="carousel">
-          <ContentWrapper>
-            <BiSolidChevronLeft className="carouselNav left" />
-            <BiSolidChevronRight className="carouselNav right" />
-            {!loading && (
+    <div className="carousel">
+      <ContentWrapper>
+        <BiSolidChevronLeft className="carouselNav left" />
+        <BiSolidChevronRight className="carouselNav right" />
+
+        {!loading ? (
+          <div className="carouselItems">
+            {
               <div className="carouselItem">
                 {data?.map(item => (
                   <div key={item.id}>
@@ -47,13 +60,23 @@ const Carousel = ({ data, loading }) => {
                   </div>
                 ))}
               </div>
-            )}
-          </ContentWrapper>
-        </div>
-      ) : (
-        <p>loading...</p>
-      )}
-    </>
+            }
+          </div>
+        ) : (
+          <div className="loadingSkeleton">
+            {skItem()}
+            {skItem()}
+            {skItem()}
+            {skItem()}
+            {skItem()}
+            {skItem()}
+            {skItem()}
+            {skItem()}
+            {skItem()}
+          </div>
+        )}
+      </ContentWrapper>
+    </div>
   );
 };
 
