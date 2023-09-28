@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+
 import Img from "../lazyLoading/Img";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 
@@ -13,6 +14,22 @@ import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ data, loading }) => {
   const { url } = useSelector(state => state.home);
+
+  const carouselContainer = useRef();
+
+  const handleNavigation = direction => {
+    const containers = carouselContainer.current;
+
+    const scrollAmount =
+      direction === "left"
+        ? containers.scrollLeft - (containers.offsetWidth + 20)
+        : containers.scrollLeft + (containers.offsetWidth + 20);
+
+    containers.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   const { secure_base_url, poster_sizes } = url;
 
@@ -38,17 +55,23 @@ const Carousel = ({ data, loading }) => {
   return (
     <div className="carousel">
       <ContentWrapper>
-        <BiSolidChevronLeft className="carouselNav left" />
-        <BiSolidChevronRight className="carouselNav right" />
+        <BiSolidChevronLeft
+          className="carouselNav left"
+          onClick={() => handleNavigation("left")}
+        />
+        <BiSolidChevronRight
+          className="carouselNav right"
+          onClick={() => handleNavigation("right")}
+        />
 
         {!loading ? (
-          <div className="carouselItems">
+          <div className="carouselItems" ref={carouselContainer}>
             {data?.map(item => (
               <div
                 key={item.id}
                 className="carouselItem"
                 onClick={() => {
-                  navigate(`/${item.media_type || endpoint}/${item.id}`);
+                  navigate(`/${item.media_type}/${item.id}`);
                 }}
               >
                 <div className="posterBlock">

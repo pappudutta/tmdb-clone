@@ -6,7 +6,7 @@ import SwitchTabs from "../../../component/switchTabs/SwitchTabs";
 
 const Trending = () => {
   const tabs = ["day", "week"];
-  const [endpoint, setEndpoint] = useState("week");
+  const [endpoint, setEndpoint] = useState("day");
   const { data, loading, error } = useFetch(`/trending/all/${endpoint}`);
 
   const onTabChange = index => {
