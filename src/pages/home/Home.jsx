@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { getApiConfiguration } from "../../features/homeSlice";
 
 import "./style.scss";
+import Trending from "./trending/Trending";
+import Popular from "./popular/Popular";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,8 @@ const Home = () => {
   return (
     <div>
       <HeroBanner />
+      <Trending />
+      <Popular />
     </div>
   );
 };

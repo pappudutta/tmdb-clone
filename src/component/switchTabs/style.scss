@@ -1,0 +1,16 @@
+.switchingTab {
+  height: 50px;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0 3px;
+  .tabItems {
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+
+  .active {
+    background: var(--gradient);
+  }
+}

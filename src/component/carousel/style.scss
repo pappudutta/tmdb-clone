@@ -1,0 +1,37 @@
+@import "../../../mixins.scss";
+.carousel {
+  margin-bottom: 70px;
+  .contentWrapper {
+    position: relative;
+
+    .carouselNav {
+      font-size: 45px;
+      background-color: rgb(13, 50, 53);
+      position: absolute;
+      top: 40%;
+      cursor: pointer;
+      border-radius: 100%;
+      opacity: 0.8;
+      // display: none;
+      z-index: 1;
+
+      @include md {
+        display: block;
+      }
+    }
+    .left {
+      left: 30px;
+    }
+    .right {
+      right: 30px;
+    }
+
+    .carouselItem {
+      display: flex;
+      gap: 10px;
+      overflow-y: hidden;
+      margin-right: -20px;
+      margin-left: -20px;
+    }
+  }
+}
