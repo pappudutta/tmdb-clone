@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 
 import Img from "../lazyLoading/Img";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
+import CircleRating from "../circleRating/CircleRating";
 
 import { BiSolidChevronRight, BiSolidChevronLeft } from "react-icons/bi";
 import FallBackImg from "../../assets/no-poster.png";
@@ -11,6 +12,7 @@ import "./style.scss";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
+import Genres from "../genres/Genres";
 
 const Carousel = ({ data, loading }) => {
   const { url } = useSelector(state => state.home);
@@ -76,11 +78,12 @@ const Carousel = ({ data, loading }) => {
               >
                 <div className="posterBlock">
                   <Img
+                    className="lazyLoadImg"
                     src={ImgUrl ? ImgUrl + item.poster_path : FallBackImg}
                     alt=""
                   />
-                  {/* <CircleRating vote={item.vote_average}/>
-            <Genres id={item.genre_ids} /> */}
+                  <CircleRating rating={item.vote_average.toFixed(1)} />
+                  <Genres id={item.genre_ids} />
                 </div>
 
                 <div className="textBlock">
