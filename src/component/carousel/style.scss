@@ -36,13 +36,11 @@
       padding: 0 20px;
 
       .carouselItem {
-        border: 1px solid blue;
         width: 160px;
         cursor: pointer;
         flex-shrink: 0;
       }
       .posterBlock {
-        border: 1px solid red;
         position: relative;
         width: 100%;
         aspect-ratio: 1/1.5;
@@ -79,6 +77,24 @@
             width: 50px;
             height: 50px;
           }
+        }
+      }
+      .textBlock {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+        .title {
+          font-family: Verdana, sans-serif;
+          font-size: 16px;
+          margin-bottom: 10px;
+          line-height: 1.2;
+        }
+        .date {
+          font-family: Verdana, sans-serif;
+
+          font-size: 14px;
+          opacity: 0.5;
         }
       }
     }
