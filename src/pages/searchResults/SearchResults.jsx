@@ -7,6 +7,7 @@ import getDataFromApi from "../../services/api-client";
 import "./style.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SpinnerLoader from "../../component/spinnerLoader/SpinnerLoader";
+import MovieCard from "../../component/movieCard/MovieCard";
 
 const SearchResults = () => {
   const [pageNum, setPageNum] = useState(1);
@@ -36,7 +37,6 @@ const SearchResults = () => {
     fetchInitialData();
   }, []);
 
-  console.log(data);
   return (
     <div className="searchResultPage">
       {loading && <SpinnerLoader />}
@@ -53,7 +53,12 @@ const SearchResults = () => {
                 next={fetchNextData}
                 hasMore={pageNum <= data?.total_page}
                 loader={<SpinnerLoader />}
-              ></InfiniteScroll>
+              >
+                {data?.results?.map((item, index) => {
+                  if (item.media_type === "person") return;
+                  return <MovieCard key={index} data={item} />;
+                })}
+              </InfiniteScroll>
             </>
           ) : (
             <>

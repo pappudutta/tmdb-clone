@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import Img from "../lazyLoading/Img";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
@@ -32,7 +32,7 @@ const Carousel = ({ data, loading, endpoint }) => {
       behavior: "smooth",
     });
   };
-  console.log(endpoint);
+
   const { secure_base_url, poster_sizes } = url;
 
   const navigate = useNavigate();

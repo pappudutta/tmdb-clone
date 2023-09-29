@@ -3,4 +3,13 @@
 .searchResultPage {
   width: 100%;
   height: 100vh;
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    @include md {
+      gap: 15px;
+    }
+  }
 }
