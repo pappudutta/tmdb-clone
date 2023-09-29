@@ -83,7 +83,7 @@ const Carousel = ({ data, loading, endpoint }) => {
                     alt=""
                   />
                   <CircleRating rating={item.vote_average.toFixed(1)} />
-                  <Genres id={item.genre_ids} />
+                  <Genres data={item.genre_ids} />
                 </div>
 
                 <div className="textBlock">

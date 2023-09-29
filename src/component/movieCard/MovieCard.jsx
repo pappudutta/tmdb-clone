@@ -24,7 +24,7 @@ const MovieCard = ({ data }) => {
 
         <div className="ratingGenre">
           <CircleRating rating={data.vote_average.toFixed(1)} />
-          <Genres data={data.genre_ids} />
+          <Genres data={data.genre_ids.slice(0, 3)} />
         </div>
       </div>
       <div className="textBlock">
