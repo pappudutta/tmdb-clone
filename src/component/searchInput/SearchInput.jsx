@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.scss";
 import { useState } from "react";
-import useFetch from "../../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
